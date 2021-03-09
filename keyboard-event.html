@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Move Nobita</title>
+</head>
+<body onload="docReady()">
+    <img id="nobita" alt="Sorry, the image is broken"
+         src="https://www.google.com.vn/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F788341109761306948%2F&psig=AOvVaw1NDwl_EKAPw2HDZ8Uyf7ch&ust=1615369314378000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLD89-X1ou8CFQAAAAAdAAAAABAD"
+         style="position:absolute;left:0; top:0;" height="100" width="80"/>
+</body>
+</html>
+<script>
+    //các hàm di chuyển
+    function upArrowPressed() {
+        let element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) - 5 + 'px';
+    }
+    function downArrowPressed() {
+        var element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) + 5 + 'px';
+    }
+    function leftArrowPressed() {
+        var element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) - 5 + 'px';
+    }
+    function rightArrowPressed() {
+        var element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) + 5 + 'px';
+
+    }
+
+    //hàm nhận các phím di chuyển
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                leftArrowPressed();
+                break;
+            case 39:
+                rightArrowPressed();
+                break;
+            case 38:
+                upArrowPressed();
+                break;
+            case 40:
+                downArrowPressed();
+                break;
+        }
+    }
+    //hàm thực hiện
+    function docReady() {
+        window.addEventListener('keydown', moveSelection);
+
+    }
+</script>
